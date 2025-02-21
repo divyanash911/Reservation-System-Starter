@@ -1,10 +1,9 @@
 package flight.reservation.plane;
 
-public class PassengerPlane {
-
-    public String model;
-    public int passengerCapacity;
-    public int crewCapacity;
+public class PassengerPlane implements Aircraft {
+    private final String model;
+    private final int passengerCapacity;
+    private final int crewCapacity;
 
     public PassengerPlane(String model) {
         this.model = model;
@@ -30,4 +29,18 @@ public class PassengerPlane {
         }
     }
 
+    @Override
+    public String getModel() {
+        return model;
+    }
+
+    @Override
+    public int getPassengerCapacity() {
+        return passengerCapacity;
+    }
+
+    @Override
+    public int getCrewCapacity() {
+        return crewCapacity;
+    }
 }
