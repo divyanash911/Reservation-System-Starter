@@ -1,4 +1,4 @@
-package main.java.flight.reservation.plane;
+package flight.reservation.plane;
 
 public interface Aircraft {
     String getModel();

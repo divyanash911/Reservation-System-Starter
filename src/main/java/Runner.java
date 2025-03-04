@@ -1,14 +1,11 @@
-import flight.reservation.Airport;
-import flight.reservation.flight.Schedule;
-import flight.reservation.flight.Flight;
-import flight.reservation.plane.Helicopter;
-import flight.reservation.plane.PassengerDrone;
-import flight.reservation.plane.PassengerPlane;
-import main.java.flight.reservation.plane.Aircraft;
-import main.java.flight.reservation.plane.AircraftFactory;
-
 import java.util.Arrays;
 import java.util.List;
+
+import flight.reservation.Airport;
+import flight.reservation.flight.Flight;
+import flight.reservation.flight.Schedule;
+import flight.reservation.plane.Aircraft;
+import flight.reservation.plane.AircraftFactory;
 
 public class Runner {
     static List<Airport> airports = Arrays.asList(

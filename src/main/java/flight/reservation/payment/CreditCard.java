@@ -3,37 +3,34 @@ package flight.reservation.payment;
 import java.util.Date;
 
 /**
- * Dummy credit card class.
+ * Credit Card payment strategy.
  */
-public class CreditCard {
-    private double amount;
+public class CreditCard implements Payment {
+    private double balance;
     private String number;
-    private Date date;
+    private Date expiryDate;
     private String cvv;
     private boolean valid;
 
-    public CreditCard(String number, Date date, String cvv) {
-        this.amount = 100000;
+    public CreditCard(String number, Date expiryDate, String cvv) {
+        this.balance = 100000; // Dummy balance
         this.number = number;
-        this.date = date;
+        this.expiryDate = expiryDate;
         this.cvv = cvv;
-        this.setValid();
+        validateCard();
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
+    private void validateCard() {
+        this.valid = number.length() > 0 && expiryDate.getTime() > System.currentTimeMillis() && !cvv.equals("000");
     }
 
-    public double getAmount() {
-        return amount;
-    }
-
-    public boolean isValid() {
-        return valid;
-    }
-
-    public void setValid() {
-        // Dummy validation
-        this.valid = number.length() > 0 && date.getTime() > System.currentTimeMillis() && !cvv.equals("000");
+    @Override
+    public boolean processPayment(double amount) {
+        if (!valid || balance < amount) {
+            return false;
+        }
+        balance -= amount;
+        System.out.println("Paid " + amount + " using Credit Card.");
+        return true;
     }
 }

@@ -1,8 +1,4 @@
-package main.java.flight.reservation.plane;
-
-import flight.reservation.plane.Helicopter;
-import flight.reservation.plane.PassengerDrone;
-import flight.reservation.plane.PassengerPlane;
+package flight.reservation.plane;
 
 public class AircraftFactory {
 
